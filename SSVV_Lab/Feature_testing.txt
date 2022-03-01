@@ -1,0 +1,28 @@
+
+Feature tour testing
+
+1. List all students
+	-	prints all students from the studenti.xml file
+2. List all assignments
+	-	prints all assignments from the teme.xml file
+3. List all grades
+	-	prints all grades from the note.xml file
+4. Add a student
+	-	adds a student to the studenti.xml file
+	- 	app crashes if a letter is introduced for group
+5. Add an assignment
+	-	adds an assignemnt to the teme.xml file
+	- 	app crashes if a letter is introduced deadlines
+6. Add a grade to a student for an assignemnt
+	-	functionality crashes
+7. Delete a student by ID
+	-	deletes a student from the studenti.xml
+8. Delete an assignemnt by ID
+	-	deletes an assignment from the teme.xml
+9. Update a student entry
+	-	updates the student in the studenti.xml
+	- 	app crashes if a letter is introduced for group
+10. Update an assignment by extending it's deadline
+	-	functionality doesn't work
+	- 	app crashes if a letter is introduced deadlines
+11. Close the app
