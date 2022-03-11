@@ -1,18 +1,15 @@
 package repository;
 
-import domain.Nota;
 import domain.Student;
-import domain.Tema;
-import org.junit.jupiter.api.Assertions;
-import validation.*;
+import org.junit.Test;
+import validation.StudentValidator;
+import validation.Validator;
 
-import static org.junit.Assert.assertThrows;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class AbstractXMLRepositoryTest {
-
-    @org.junit.jupiter.api.Test
-    void Test_save_student_when_id_is_null_returns_null() {
+public class AbstractXMLRepositoryTest {
+    @Test
+    public void Test_save_student_when_id_is_null_returns_null() {
         Student student = new Student(null, "Anna", 200);
         Validator<Student> studentValidator = new StudentValidator();
         StudentXMLRepository studentXMLRepository = new StudentXMLRepository(studentValidator, "test_studenti.xml");
@@ -20,12 +17,14 @@ class AbstractXMLRepositoryTest {
         assertNull(studentXMLRepository.save(student));
     }
 
-    @org.junit.jupiter.api.Test
-    void Test_save_student_when_data_is_valid_success() {
+    @Test
+    public void Test_save_student_when_data_is_valid_success() {
         Student student = new Student("55", "Anna", 200);
         Validator<Student> studentValidator = new StudentValidator();
         StudentXMLRepository studentXMLRepository = new StudentXMLRepository(studentValidator, "test_studenti.xml");
 
         assertNull(studentXMLRepository.save(student));
+
+        studentXMLRepository.delete("55");
     }
 }
