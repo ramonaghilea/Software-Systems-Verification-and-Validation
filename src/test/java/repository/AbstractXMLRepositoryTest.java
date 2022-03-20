@@ -1,11 +1,11 @@
 package repository;
 
 import domain.Student;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import validation.StudentValidator;
 import validation.Validator;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AbstractXMLRepositoryTest {
 
