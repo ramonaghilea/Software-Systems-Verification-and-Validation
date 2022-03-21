@@ -15,13 +15,13 @@ public class AbstractXMLRepositoryTest {
         Validator<Student> studentValidator = new StudentValidator();
         StudentXMLRepository studentXMLRepository = new StudentXMLRepository(studentValidator, "test_studenti.xml");
 
-        assertNull(studentXMLRepository.save(student));
+        assertEquals(studentXMLRepository.save(student), student);
 
         studentXMLRepository.delete("55");
     }
 
     @Test
-    public void Test_save_student_when_data_is_valid_and_group_is_110_success() {
+    public void Test_save_student_when_data_is_valid_and_group_is_110_returns_null() {
         Student student = new Student("0", "Ben", 110);
         Validator<Student> studentValidator = new StudentValidator();
         StudentXMLRepository studentXMLRepository = new StudentXMLRepository(studentValidator, "test_studenti.xml");
@@ -37,7 +37,7 @@ public class AbstractXMLRepositoryTest {
         Validator<Student> studentValidator = new StudentValidator();
         StudentXMLRepository studentXMLRepository = new StudentXMLRepository(studentValidator, "test_studenti.xml");
 
-        assertNull(studentXMLRepository.save(student));
+        assertEquals(studentXMLRepository.save(student), student);
 
         studentXMLRepository.delete("0");
     }
@@ -48,13 +48,13 @@ public class AbstractXMLRepositoryTest {
         Validator<Student> studentValidator = new StudentValidator();
         StudentXMLRepository studentXMLRepository = new StudentXMLRepository(studentValidator, "test_studenti.xml");
 
-        assertNull(studentXMLRepository.save(student));
+        assertEquals(studentXMLRepository.save(student), student);
 
         studentXMLRepository.delete("0");
     }
 
     @Test
-    public void Test_save_student_when_data_is_valid_and_group_is_938_success() {
+    public void Test_save_student_when_data_is_valid_and_group_is_938_returns_null() {
         Student student = new Student("0", "Ben", 938);
         Validator<Student> studentValidator = new StudentValidator();
         StudentXMLRepository studentXMLRepository = new StudentXMLRepository(studentValidator, "test_studenti.xml");
