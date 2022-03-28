@@ -30,6 +30,24 @@ class TemaXMLRepositoryTest {
     }
 
     @Test
+    public void Test_save_assignment_when_id_is_null_returns_null() {
+        Tema tema = new Tema(null, "FP", 10, 5);
+        Validator<Tema> temaValidator = new TemaValidator();
+        TemaXMLRepository temaXMLRepository = new TemaXMLRepository(temaValidator, "test_teme.xml");
+
+        assertNull(temaXMLRepository.save(tema));
+    }
+
+    @Test
+    public void Test_save_assignment_when_description_is_empty_returns_null() {
+        Tema tema = new Tema("5", "", 10, 5);
+        Validator<Tema> temaValidator = new TemaValidator();
+        TemaXMLRepository temaXMLRepository = new TemaXMLRepository(temaValidator, "test_teme.xml");
+
+        assertNull(temaXMLRepository.save(tema));
+    }
+
+    @Test
     public void Test_save_assignment_when_deadline_is_greater_than_14_returns_null() {
         Tema tema = new Tema("5", "FP", 15, 5);
         Validator<Tema> temaValidator = new TemaValidator();
