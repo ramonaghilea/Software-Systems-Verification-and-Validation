@@ -41,28 +41,33 @@ class ServiceTest {
 //    }
 
     @Test
-    public void test_addStudent() {
+    public void test_addStudent_when_data_is_valid_returns_0() {
         assertEquals(service.saveStudent("55", "Anna", 200), 0);
 
         studentXMLRepository.delete("55");
     }
 
     @Test
-    public void test_addAssignment() {
+    public void test_addAssignment_when_data_is_valid_returns_0() {
         assertEquals(service.saveTema("5", "tema FP", 10, 5), 0);
 
         temaXMLRepository.delete("5");
     }
 
+//    @Test
+//    public void test_addAssignment_when_description_is_empty_returns_1() {
+//        assertEquals(service.saveTema("5", "", 10, 5), 1);
+//    }
+
     @Test
-    public void test_addGrade() {
+    public void test_addGrade_when_data_is_valid_returns_0() {
         assertEquals(service.saveNota("1", "3",  9, 8, "congrats"), 0);
 
         notaXMLRepository.delete(new Pair<>("1", "3"));
     }
 
     @Test
-    public void test_integration_addGrade_success() {
+    public void test_integration_bigbang_addGrade_success() {
         assertEquals(service.saveStudent("55", "Anna", 200), 0);
         assertEquals(service.saveTema("5", "tema FP", 10, 5), 0);
         assertEquals(service.saveNota("55", "5",  10, 6, "congrats"), 0);
@@ -70,5 +75,22 @@ class ServiceTest {
         studentXMLRepository.delete("55");
         temaXMLRepository.delete("5");
         notaXMLRepository.delete(new Pair<>("55", "5"));
+    }
+
+    @Test
+    public void test_integration_topdown_addAssignment_failure() {
+        assertEquals(service.saveStudent("55", "Anna", 200), 0);
+        assertEquals(service.saveTema("5", "", 10, 5), 1);
+
+        studentXMLRepository.delete("55");
+    }
+
+    @Test
+    public void test_integration_topdown_addGrade_failure() {
+        assertEquals(service.saveStudent("55", "Anna", 200), 0);
+        assertEquals(service.saveTema("5", "", 10, 5), 1);
+        assertEquals(service.saveNota("55", "5",  10, 6, "congrats"), -1);
+
+        studentXMLRepository.delete("55");
     }
 }
